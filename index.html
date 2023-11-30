@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ai Image Generator | The New Way To Generate Images</title>
-    <!-- Favicon -->
+    <title>Realistic AI Vision</title>
     <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon" />
-    <!-- Rubik Link -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Rubik:wght@400;600&display=swap" rel="stylesheet" />
-    <!-- BoxIcons -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-
-    <!-- General Styles -->
     <link rel="stylesheet" href="./styles/style.css" />
 </head>
+
 <body>
     <div id="splash">
         <svg class="ip" viewBox="0 0 256 128" width="256px" height="128px" xmlns="http://www.w3.org/2000/svg">
@@ -57,13 +54,13 @@
     </div>
 
     <div class="container">
-        <h1 style="font-weight: 700">Realistic Ai Image Generator</h1>
+        <h1 style="font-weight: 700">Realistic AI Generator</h1>
         <p class="desc">
-          Realistic AI Image Generator
-          <br/>
+          Realistic AI Vision
+            <br /> Note: If you click on any photo, that photo will be downloaded.
         </p>
         <form class="gen-form" id="form">
-            <input type="text" autocomplete="off" id="prompt" placeholder="Enter Your Prompt. . ." />
+            <input type="text" autocomplete="off" id="user-prompt" placeholder="Enter Your Prompt Here . . ." />
             <button type="button" id="generate">Generate</button>
         </form>
         <div class="result">
@@ -73,10 +70,11 @@
                     <h2>Generating . . .</h2>
                 </div>
             </div>
-            <div id="image"></div>
+            <div id="image-grid"></div>
         </div>
+
         <footer>
-            by <a href="" target="_blank">yogesh</a>
+            by <a href="#" target="_blank">Yogesh</a>
       </footer>
     </div>
     <script src="script/main.js" defer></script>
