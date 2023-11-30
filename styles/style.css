@@ -1,10 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Rubik:wght@400;600&display=swap');
+:root {
+    --hue: 223;
+    --bg: hsl(var(--hue), 90%, 95%);
+    --fg: hsl(var(--hue), 90%, 5%);
+    --trans-dur: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif !important;
+    font-weight: 500;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #920bffe8; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #920bffcd; 
+}
 
 body {
     background-color: rgb(1, 5, 20);
     color: white;
     overflow-x: hidden;
 }
-
 button:disabled,
 button[disabled] {
     border: 1px solid gray;
@@ -119,7 +148,7 @@ form button {
     margin: 1rem 0 2rem 0;
 }
 
-#image {
+#image-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -127,7 +156,7 @@ form button {
     max-width: 80%;
 }
 
-#image img {
+#image-grid img {
     max-width: 100%;
     border-radius: 1rem;
     cursor: pointer;
@@ -135,7 +164,7 @@ form button {
     transition: all .4s ease;
 }
 
-#image img:hover {
+#image-grid img:hover {
     border-color: whitesmoke;
     box-shadow: 0 0 15px white;
 }
@@ -158,7 +187,7 @@ footer a {
 }
 
 @media screen and (max-width: 500px) {
-    #image{
+    #image-grid {
         grid-template-columns: repeat(1, 1fr);
         max-width: 100%;
     }
@@ -175,6 +204,48 @@ footer a {
         width: 100%;
         border: 1px solid whitesmoke;
     }
+}
+
+.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#splash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+    background: #010412;
+    overflow: hidden;
+    width: 100%;
+    position: absolute;
+    inset: 0;
+    z-index: 99999999999999;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    -o-transition: all .4s ease;
+}
+
+.ip {
+    width: 16em;
+    height: 8em;
+}
+
+.ip__track {
+    stroke: hsl(var(--hue), 90%, 90%);
+    transition: stroke var(--trans-dur);
+}
+
+.ip__worm1,
+.ip__worm2 {
+    animation: worm1 1s linear infinite;
+}
+
+.ip__worm2 {
+    animation-name: worm2;
 }
 
 @media (prefers-color-scheme: dark) {
