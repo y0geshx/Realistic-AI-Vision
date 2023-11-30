@@ -15,7 +15,7 @@ function enableGenerateButton() {
 }
 
 function clearImageGrid() {
-    const imageGrid = document.getElementById("image");
+    const imageGrid = document.getElementById("image-grid");
     imageGrid.innerHTML = "";
 }
 
@@ -29,6 +29,7 @@ async function generateImages(input) {
     const imageUrls = [];
 
     for (let i = 0; i < maxImage; i++) {
+        
         const randomNumber = getRandomNumber(1, 10000);
         const prompt = `${input} ${randomNumber}`;
 
@@ -75,16 +76,19 @@ document.getElementById("generate").addEventListener("click", () => {
 
 document.getElementById("form").addEventListener("submit", (e) => {
     e.preventDefault();
-    const input = document.getElementById("prompt").value;
+    const input = document.getElementById("user-prompt").value;
     console.log(input);
     generateImages(input);
 });
 
-// Function To Download Image's
 function downloadImage(imgUrl, imageNumber) {
     const link = document.createElement("a");
     link.href = imgUrl;
-    // Set Filename Based On The Selected Image
+
     link.download = `image-${imageNumber + 1}.jpg`;
     link.click();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("splash").classList.add("loaded");
 });
