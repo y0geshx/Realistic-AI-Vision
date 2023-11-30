@@ -10,6 +10,10 @@ function disableGenerateButton() {
     document.getElementById("generate").disabled = true;
 }
 
+function enableGenerateButton() {
+    document.getElementById("generate").disabled = false;
+}
+
 function clearImageGrid() {
     const imageGrid = document.getElementById("image");
     imageGrid.innerHTML = "";
@@ -74,4 +78,13 @@ document.getElementById("form").addEventListener("submit", (e) => {
     const input = document.getElementById("prompt").value;
     console.log(input);
     generateImages(input);
+});
+
+// Function To Download Image's
+function downloadImage(imgUrl, imageNumber) {
+    const link = document.createElement("a");
+    link.href = imgUrl;
+    // Set Filename Based On The Selected Image
+    link.download = `image-${imageNumber + 1}.jpg`;
+    link.click();
 });
